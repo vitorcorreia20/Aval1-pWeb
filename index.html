@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo de Personagens | Rick and Morty</title>
+  <meta name="description" content="Pesquise personagens de Rick and Morty por nome, filtre por status ou gênero e veja os detalhes de cada um.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#results-heading">Ir para os resultados</a>
+
+  <header class="site-header">
+    <div class="portal" aria-hidden="true"></div>
+    <div class="wrap header-content">
+      <h1 class="site-title">Catálogo de Personagens</h1>
+      <p class="lead">Pesquise personagens de Rick and Morty e abra a ficha de cada um.</p>
+
+      <form id="search-form" class="search-form" role="search" novalidate>
+        <div class="field">
+          <label for="name">Nome do personagem</label>
+          <input id="name" name="name" type="search" autocomplete="off" placeholder="Ex.: Rick" aria-describedby="name-error">
+        </div>
+
+        <div class="field">
+          <label for="status">Status</label>
+          <select id="status" name="status">
+            <option value="">Todos</option>
+            <option value="alive">Vivo</option>
+            <option value="dead">Morto</option>
+            <option value="unknown">Desconhecido</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="gender">Gênero</label>
+          <select id="gender" name="gender">
+            <option value="">Todos</option>
+            <option value="female">Feminino</option>
+            <option value="male">Masculino</option>
+            <option value="genderless">Sem gênero</option>
+            <option value="unknown">Desconhecido</option>
+          </select>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="button">Pesquisar</button>
+          <button type="button" id="clear-button" class="button button-secondary">Limpar</button>
+        </div>
+
+        <p id="name-error" class="field-error" role="alert" hidden></p>
+      </form>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h2 id="results-heading" class="results-heading" tabindex="-1">Resultados</h2>
+
+    <div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div>
+
+    <ul id="results" class="grid" aria-busy="false"></ul>
+
+    <nav id="pagination" class="pagination" aria-label="Paginação dos resultados" hidden>
+      <button type="button" id="prev-button" class="button button-secondary">Página anterior</button>
+      <span id="page-info" class="page-info"></span>
+      <button type="button" id="next-button" class="button button-secondary">Próxima página</button>
+    </nav>
+  </main>
+
+  <dialog id="detail-dialog" class="dialog" aria-labelledby="detail-title">
+    <div class="dialog-header">
+      <h2 id="detail-title" class="dialog-title">Personagem</h2>
+      <button type="button" id="dialog-close" class="button button-secondary">Fechar</button>
+    </div>
+    <div id="detail-body" class="dialog-content" aria-live="polite"></div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
