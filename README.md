@@ -5,7 +5,7 @@ Aplicação web para pesquisar e explorar personagens da série **Rick and Morty
 ## Integrantes
 
 - Vitor Correia
-- Matheus Silva
+- Mateus Silva
 
 ## Descrição
 
